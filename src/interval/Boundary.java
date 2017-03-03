@@ -16,11 +16,11 @@ public enum Boundary {
         this.highBoundary = highPredicate;
     }
 
-    public BoundaryPredicate getLowBoundary() {
-        return lowBoundary;
+    public boolean testLowBoundary(Double number, Double limit) {
+        return lowBoundary.test(number, limit);
     }
 
-    public BoundaryPredicate getHighBoundary() {
-        return highBoundary;
+    public boolean testHighBoundary(Double number, Double limit) {
+        return highBoundary.test(number, limit);
     }
 }

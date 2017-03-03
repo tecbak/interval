@@ -16,11 +16,9 @@ public class Interval {
     }
 
     public List<Double> getCalculatedData(final List<Double> list) {
-        final BoundaryPredicate lowBoundary = boundary.getLowBoundary();
-        final BoundaryPredicate highBoundary = boundary.getHighBoundary();
         return list.stream().
-                filter((number) -> lowBoundary.test(number, min)).
-                filter((number) -> highBoundary.test(number, max)).
+                filter((number) -> boundary.testLowBoundary(number, min)).
+                filter((number) -> boundary.testHighBoundary(number, max)).
                 collect(toList());
     }
 }
